@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF to Audio Converter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #c9d6ff, #e2e2e2);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      animation: slideUp 1s ease;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: #333;
+      animation: textPop 1.2s ease;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px dashed #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 25px;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="file"]:hover {
+      border-color: #007bff;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(60px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes textPop {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px 20px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Upload PDF File to Convert it into Audio File</h1>
+    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+      <input type="file" accept=".pdf" name="pdf_file" required />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
