@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# pdf_audio_django
-=======
 # 📄🔊 PDF to Audio Converter (Django)
 
 This is a simple Django web application that allows users to upload a PDF file and download an MP3 audio version of the text content. The app uses `PyPDF2` to extract text and `pyttsx3` for offline text-to-speech synthesis.
